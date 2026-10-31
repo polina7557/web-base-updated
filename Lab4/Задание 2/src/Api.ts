@@ -3,7 +3,7 @@ export interface PostDTO {
     id: number
     title: string
     body: string
-};
+}
 
 export interface CommentDTO {
     postId: number
@@ -11,7 +11,7 @@ export interface CommentDTO {
     name: string 
     email: string
     body: string
-};
+}
 
 export interface UserDTO {
     id: number
@@ -35,7 +35,7 @@ export interface UserDTO {
         catchPhrase: string
         bs: string
     }
-};
+}
 
 export class Api {
     basePath = "";
@@ -70,25 +70,25 @@ export class Api {
 
     getPosts(): Promise<PostDTO[]> {
         return this.baseFetch<PostDTO[]>('posts');
-    };
+    }
 
     getPostByPostId(postId: number): Promise<PostDTO> {
         return this.baseFetch<PostDTO>(`posts/${postId}`);
-    };
+    }
 
     createPost(post: PostDTO): Promise<{id: number}> {
         return this.baseFetch<{id: number}>('posts', 'POST', post as unknown as Record<string, unknown>);
-    };
+    }
 
     getComments(): Promise<CommentDTO[]> {
         return this.baseFetch<CommentDTO[]>('comments');
-    };
+    }
     
     getCommentByCommentId(commentId: number): Promise<CommentDTO> {
         return this.baseFetch<CommentDTO>(`comments/${commentId}`);
-    };
+    }
 
     getUsers(): Promise<UserDTO[]> {
         return this.baseFetch<UserDTO[]>('users');
-    };
-};
+    }
+}
